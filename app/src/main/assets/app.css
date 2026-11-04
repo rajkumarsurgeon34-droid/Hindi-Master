@@ -306,3 +306,13 @@ canvas.pad{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 @media(max-width:380px){.stats{gap:5px}.tiles,.shelf{gap:8px}.dkb-keys{grid-template-columns:repeat(7,1fr)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media print{.appbar,.tabbar,.app{display:none!important}}
+
+/* ---------- story studio ---------- */
+.sline{font-size:26px;line-height:1.7;font-family:"Noto Sans Devanagari",var(--font);font-weight:700}
+.sline .w{display:inline-block;padding:0 4px;border-radius:9px;color:var(--ink);font-size:inherit}
+.sline .w:active{background:#fff1b8}
+.arr-pool{display:flex;flex-wrap:wrap;gap:8px}
+.blank{display:inline-block;min-width:70px;border-bottom:4px dashed var(--orange);color:transparent;margin:0 3px}
+.jitem{background:#fff;border:2px solid var(--line);border-radius:18px;padding:10px 14px;margin-bottom:8px}
+.jitem small{color:var(--muted);font-weight:800}.jitem p{font-size:18px;margin-top:2px}
+.sheet-bar .play{width:44px;height:44px;flex:none}
