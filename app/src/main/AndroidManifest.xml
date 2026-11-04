@@ -4,6 +4,13 @@
     <!-- Only needed for the web fonts and for opening external links. The course itself works offline. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Android 11+ hides other apps unless declared; without this the text-to-speech engine cannot be found. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

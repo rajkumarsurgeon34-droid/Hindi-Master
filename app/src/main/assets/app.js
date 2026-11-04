@@ -51,13 +51,21 @@ function checkBadges() { BADGES.forEach((b, i) => { if (!state.badges.includes(i
 
 /* ---------- speech ---------- */
 let speaking = 0;
+let ttsSeq = 0; const ttsCbs = {};
+window.__ttsDone = id => { const f = ttsCbs[id]; delete ttsCbs[id]; if (f) f() };
 function speak(t, onend) {
+  if (window.HMTTS) {
+    const id = String(++ttsSeq); ttsCbs[id] = onend || null;
+    let r = 'error'; try { r = HMTTS.speak(t, id) } catch (e) { }
+    if (r !== 'ok') { delete ttsCbs[id]; if (onend) setTimeout(onend, 400) }
+    return;
+  }
   if (!('speechSynthesis' in window)) { if (onend) onend(); return }
   speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'hi-IN'; u.rate = .85;
   const v = speechSynthesis.getVoices().find(v => /hi[-_]IN/i.test(v.lang)); if (v) u.voice = v;
   u.onend = u.onerror = () => { if (onend) onend() }; speechSynthesis.speak(u);
 }
-function stopSpeak() { speaking++; try { speechSynthesis.cancel() } catch (e) { } document.querySelectorAll('.ex.playing').forEach(e => e.classList.remove('playing')); const b = $('playAll'); if (b) b.textContent = '▶ ' + tr('playAll') }
+function stopSpeak() { speaking++; try { speechSynthesis.cancel() } catch (e) { } try { window.HMTTS && HMTTS.stop() } catch (e) { } document.querySelectorAll('.ex.playing').forEach(e => e.classList.remove('playing')); const b = $('playAll'); if (b) b.textContent = '▶ ' + tr('playAll') }
 function playList(list, each, done) { const id = ++speaking; let n = 0; const next = () => { if (id !== speaking) return; if (n >= list.length) { if (done) done(); return } const k = n++; if (each) each(k); speak(list[k], () => setTimeout(next, 350)) }; next() }
 
 /* ---------- small ui helpers ---------- */
