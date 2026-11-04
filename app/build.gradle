@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
 }
 
+// CI sets GITHUB_RUN_NUMBER so every build gets a higher version and installs over the previous one.
+def runNumber = (System.getenv("GITHUB_RUN_NUMBER") ?: "1") as int
+
 android {
     namespace 'com.shazverse.hindimaster'
     compileSdk 34
@@ -10,8 +13,7 @@ android {
         applicationId "com.shazverse.hindimaster"
         minSdk 24
         targetSdk 34
-        // CI sets GITHUB_RUN_NUMBER so every build can install over the previous one.
-        versionCode (System.getenv("GITHUB_RUN_NUMBER") ?: "1").toInteger()
+        versionCode = runNumber
         versionName "1.0"
     }
 
