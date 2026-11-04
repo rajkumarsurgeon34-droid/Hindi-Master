@@ -1,0 +1,308 @@
+/* Hindi Master - main design system (replaces theme.css + playful.css) */
+:root{--ink:#2b2140;--muted:#7a7391;--bg:#fff7ec;--card:#fff;--line:#f1e5d5;--orange:#ff6b35;--orange-d:#d9501c;--pink:#ff4f8b;--pink-d:#cf2f6a;--violet:#7c5cff;--violet-d:#5a3de0;--teal:#14b8a6;--teal-d:#0c8f81;--yellow:#ffc93c;--yellow-d:#d9a20a;--blue:#3b82f6;--blue-d:#2563c9;--green:#22c55e;--green-d:#16a24a;--red:#ef4444;--r:22px;--shadow:0 8px 24px rgba(43,33,64,.10);
+--font:"Nunito","Noto Sans Devanagari","Noto Sans Tamil","Noto Sans Kannada","Noto Sans Malayalam","Noto Sans Telugu",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--display:"Baloo 2","Nunito","Noto Sans Devanagari","Noto Sans Tamil","Noto Sans Kannada","Noto Sans Malayalam","Noto Sans Telugu",system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+background-image:radial-gradient(circle at 0 0,#ffe0c9 0,transparent 38%),radial-gradient(circle at 100% 12%,#e6defd 0,transparent 32%),radial-gradient(#f3e3cf 1.2px,transparent 1.3px);background-size:auto,auto,26px 26px;background-attachment:fixed}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+h1,h2,h3,h4,p{margin:0}
+.dev{font-family:"Noto Sans Devanagari",var(--font);font-weight:700}
+.app{max-width:720px;margin:0 auto;padding:0 16px 104px;position:relative;min-height:100vh}
+.bg-letters{display:none}
+
+/* ---------- app bar ---------- */
+.appbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 0 10px;background:linear-gradient(var(--bg) 78%,transparent)}
+.logo{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.logo-mark{width:42px;height:42px;border-radius:14px;flex:none;background:linear-gradient(135deg,#ff7a3d,#ff4f8b 55%,#7c5cff);display:grid;place-items:center;color:#fff;font:800 25px/1 "Noto Sans Devanagari",var(--font);box-shadow:0 4px 0 #b83a63,0 8px 16px rgba(255,79,139,.3)}
+.logo b{display:block;font:800 19px/1.05 var(--display);letter-spacing:-.3px}
+.logo b i{font-style:normal;color:var(--orange)}
+.logo small{display:block;font-size:10px;letter-spacing:1.4px;color:var(--muted);font-weight:800;text-transform:uppercase}
+.chip-btn{display:flex;align-items:center;gap:6px;height:40px;padding:0 13px;border-radius:20px;background:#fff;border:2px solid var(--line);font-weight:800;font-size:14px;box-shadow:0 3px 0 var(--line)}
+.chip-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+.chip-btn .flame{display:inline-block;animation:flame 1.6s ease-in-out infinite}
+@keyframes flame{50%{transform:scale(1.18) rotate(-6deg)}}
+
+/* ---------- pages + tab bar ---------- */
+.page{display:none;animation:pageIn .35s ease}
+.page.on{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center;padding:0 12px calc(8px + env(safe-area-inset-bottom));pointer-events:none}
+.tabbar-in{pointer-events:auto;display:flex;width:100%;max-width:560px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:2px solid var(--line);border-radius:26px;padding:6px;box-shadow:0 10px 30px rgba(43,33,64,.16)}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 2px 5px;border-radius:20px;color:var(--muted);font-size:11px;font-weight:800;transition:.2s}
+.tab span{font-size:22px;line-height:1.1;transition:transform .2s}
+.tab.on{background:linear-gradient(135deg,#fff0e6,#ffe6f0);color:var(--orange-d)}
+.tab.on span{transform:translateY(-2px) scale(1.12)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:16px;font-weight:900;font-size:16px;color:#fff;background:var(--orange);box-shadow:0 5px 0 var(--orange-d);transition:.12s;text-align:center}
+.btn:active:not(:disabled){transform:translateY(4px);box-shadow:0 1px 0 var(--orange-d)}
+.btn:disabled{background:#d8d2e2;box-shadow:0 5px 0 #bdb6cb;color:#fff;cursor:not-allowed}
+.btn.violet{background:var(--violet);box-shadow:0 5px 0 var(--violet-d)}.btn.violet:active:not(:disabled){box-shadow:0 1px 0 var(--violet-d)}
+.btn.teal{background:var(--teal);box-shadow:0 5px 0 var(--teal-d)}.btn.teal:active:not(:disabled){box-shadow:0 1px 0 var(--teal-d)}
+.btn.green{background:var(--green);box-shadow:0 5px 0 var(--green-d)}.btn.green:active:not(:disabled){box-shadow:0 1px 0 var(--green-d)}
+.btn.pink{background:var(--pink);box-shadow:0 5px 0 var(--pink-d)}.btn.pink:active:not(:disabled){box-shadow:0 1px 0 var(--pink-d)}
+.btn.ghost{background:#fff;color:var(--ink);border:2px solid var(--line);box-shadow:0 4px 0 var(--line)}.btn.ghost:active:not(:disabled){box-shadow:0 0 0 var(--line)}
+.btn.sm{min-height:38px;padding:0 14px;font-size:14px;border-radius:13px;box-shadow:0 3px 0 var(--orange-d)}
+.btn.sm.ghost{box-shadow:0 3px 0 var(--line)}
+.btn.block{width:100%}
+.btn.big{min-height:56px;font-size:18px;border-radius:18px}
+.play{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:19px;background:#eaf3ff;color:var(--blue-d);box-shadow:0 3px 0 #cfe0fb;transition:.12s}
+.play:active{transform:translateY(2px);box-shadow:0 1px 0 #cfe0fb}
+.play.on{background:var(--blue);color:#fff}
+
+/* ---------- cards ---------- */
+.card{background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:0 4px 0 var(--line)}
+.card+.card{margin-top:14px}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:1.6px;text-transform:uppercase;color:var(--orange-d)}
+.h2{font:800 22px/1.15 var(--display);margin:2px 0 4px}
+.sub{color:var(--muted);font-size:14px;font-weight:600}
+.row{display:flex;align-items:center;gap:12px}
+.grow{flex:1;min-width:0}
+.mt{margin-top:14px}.mt2{margin-top:22px}
+.sec{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:24px 2px 10px}
+
+/* ---------- home ---------- */
+.hello{position:relative;overflow:hidden;border-radius:28px;padding:18px 18px 18px;color:#fff;background:linear-gradient(135deg,#ff7a3d,#ff4f8b 58%,#7c5cff);box-shadow:0 8px 0 #b83a63,0 18px 30px rgba(255,79,139,.28)}
+.hello::before{content:"अ क ह म";position:absolute;right:-8px;top:-18px;font:800 70px/1 "Noto Sans Devanagari";letter-spacing:6px;opacity:.12;white-space:nowrap}
+.hello-top{display:flex;align-items:flex-end;gap:6px;position:relative}
+.hello .toon{flex:none;margin:-4px 0 -10px -6px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+.speech{position:relative;background:#fff;color:var(--ink);padding:10px 14px;border-radius:18px 18px 18px 4px;font-weight:800;font-size:15px;line-height:1.3;box-shadow:0 4px 0 rgba(0,0,0,.12);margin-bottom:14px}
+.speech .dev{display:block;font-size:20px;color:var(--orange-d)}
+.hello h1{font:800 26px/1.1 var(--display);margin:12px 0 6px;position:relative}
+.hello p{opacity:.95;font-size:14px;font-weight:600;position:relative}
+.goal{display:flex;align-items:center;gap:12px;margin-top:14px;position:relative;background:rgba(255,255,255,.18);border-radius:18px;padding:10px 12px}
+.ring{--p:0;width:54px;height:54px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(#fff calc(var(--p)*1%),rgba(255,255,255,.28) 0)}
+.ring i{width:42px;height:42px;border-radius:50%;background:#e8457d;display:grid;place-items:center;font:800 13px var(--display);font-style:normal}
+.cta{margin-top:14px;position:relative;background:#fff;color:var(--orange-d);box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.cta:active:not(:disabled){box-shadow:0 1px 0 rgba(0,0,0,.18)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.stat{background:#fff;border:2px solid var(--line);border-radius:18px;padding:10px 4px;text-align:center;box-shadow:0 3px 0 var(--line)}
+.stat b{display:block;font:800 19px/1.1 var(--display)}
+.stat small{display:block;font-size:10.5px;font-weight:800;color:var(--muted);margin-top:2px}
+.stat span{font-size:18px}
+
+.lvtabs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;margin:0 -16px;padding-inline:16px;scrollbar-width:none}
+.lvtabs::-webkit-scrollbar{display:none}
+.lv{flex:none;min-width:98px;text-align:left;background:#fff;border:2px solid var(--line);border-radius:18px;padding:9px 12px;box-shadow:0 3px 0 var(--line);transition:.15s}
+.lv span{font-size:22px;display:block;line-height:1.2}
+.lv b{display:block;font:800 14px/1.2 var(--display)}
+.lv small{font-size:11px;font-weight:800;color:var(--muted)}
+.lv.on{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:0 4px 0 #120c20}
+.lv.on small{color:#cfc6ee}
+.lvhead{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:20px;padding:12px 14px;box-shadow:0 3px 0 var(--line)}
+.lvhead .big{font-size:34px}
+.bar{height:10px;border-radius:6px;background:#efe6d8;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--orange),var(--pink));transition:width .5s}
+.seg{display:flex;background:#efe6d8;border-radius:14px;padding:3px;gap:2px}
+.seg button{padding:6px 12px;border-radius:11px;font-weight:800;font-size:13px;color:var(--muted)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 2px 4px rgba(0,0,0,.1)}
+
+/* journey path */
+.path{position:relative;padding:8px 0 4px}
+.node{display:flex;align-items:center;gap:12px;position:relative;margin:0 0 6px;width:100%;text-align:left}
+.node:nth-child(4n+2){padding-left:34px}.node:nth-child(4n+3){padding-left:62px}.node:nth-child(4n+4){padding-left:34px}
+.node-dot{width:68px;height:68px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:30px;position:relative;background:#fff;border:4px solid var(--c,var(--violet));box-shadow:0 6px 0 var(--cd,var(--violet-d));transition:.12s}
+.node:active .node-dot{transform:translateY(4px);box-shadow:0 2px 0 var(--cd,var(--violet-d))}
+.node.done .node-dot{background:var(--c,var(--violet))}
+.node.done .node-dot::after{content:"★";position:absolute;right:-6px;top:-8px;width:26px;height:26px;border-radius:50%;background:var(--yellow);color:#8a6200;font-size:15px;display:grid;place-items:center;border:3px solid #fff;box-shadow:0 2px 0 var(--yellow-d)}
+.node.next .node-dot{animation:pulse 1.6s infinite}
+.node.next .node-dot::before{content:"START";position:absolute;top:-22px;left:50%;transform:translateX(-50%);font:900 10px var(--font);letter-spacing:1px;background:var(--ink);color:#fff;padding:3px 8px;border-radius:9px;white-space:nowrap}
+@keyframes pulse{0%{box-shadow:0 6px 0 var(--cd),0 0 0 0 rgba(255,107,53,.5)}70%{box-shadow:0 6px 0 var(--cd),0 0 0 16px rgba(255,107,53,0)}100%{box-shadow:0 6px 0 var(--cd),0 0 0 0 rgba(255,107,53,0)}}
+.node-txt{min-width:0}
+.node-txt small{font-size:11px;font-weight:900;letter-spacing:1px;color:var(--c,var(--violet-d));text-transform:uppercase}
+.node-txt b{display:block;font:800 16px/1.2 var(--display)}
+.node-txt .dev{font-size:13px;color:var(--muted);font-weight:700}
+.s-vocab{--c:#7c5cff;--cd:#5a3de0}.s-grammar{--c:#3b82f6;--cd:#2563c9}.s-read{--c:#ff6b35;--cd:#d9501c}.s-write{--c:#ff4f8b;--cd:#cf2f6a}.s-speak{--c:#14b8a6;--cd:#0c8f81}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.dcell{position:relative;background:#fff;border:2px solid var(--c);border-radius:18px;padding:10px 6px 8px;text-align:center;box-shadow:0 4px 0 var(--cd)}
+.dcell:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cd)}
+.dcell.done{background:var(--c);color:#fff}
+.dcell.next{animation:pulse 1.6s infinite}
+.dcell small{display:block;font-size:10px;font-weight:900;letter-spacing:1px;opacity:.8}
+.dcell .e{font-size:26px;display:block}
+.dcell b{display:block;font:800 12px/1.2 var(--display);min-height:29px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:900;padding:3px 9px;border-radius:10px;background:color-mix(in srgb,var(--c,#7c5cff) 14%,#fff);color:var(--cd,#5a3de0)}
+
+/* practice + library tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{position:relative;text-align:left;min-height:128px;border-radius:24px;padding:14px;color:#fff;overflow:hidden;box-shadow:0 6px 0 var(--cd)}
+.tile:active{transform:translateY(4px);box-shadow:0 2px 0 var(--cd)}
+.tile .ti{font-size:34px;line-height:1}
+.tile b{display:block;font:800 17px/1.15 var(--display);margin-top:10px}
+.tile small{display:block;font-size:12px;font-weight:700;opacity:.92;margin-top:2px}
+.tile::after{content:attr(data-g);position:absolute;right:-6px;bottom:-22px;font:800 80px/1 "Noto Sans Devanagari";opacity:.15}
+.tile.a{background:linear-gradient(135deg,#ff8a4c,#ff5b6e);--cd:#c73d4d}.tile.b{background:linear-gradient(135deg,#8b6bff,#5a8bff);--cd:#4635b8}.tile.c{background:linear-gradient(135deg,#1fc7b2,#2cb1e8);--cd:#0c7d8a}.tile.d{background:linear-gradient(135deg,#ff6fa3,#ffa23c);--cd:#c24a6b}.tile.e{background:linear-gradient(135deg,#34c76b,#14b8a6);--cd:#0e8a56}.tile.f{background:linear-gradient(135deg,#4f5bd5,#a066ff);--cd:#352f94}
+.menu{display:grid;gap:10px}
+.mi{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:20px;padding:12px 14px;box-shadow:0 4px 0 var(--line);text-align:left;width:100%}
+.mi:active{transform:translateY(3px);box-shadow:0 1px 0 var(--line)}
+.mi .mi-i{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:25px;flex:none}
+.mi b{display:block;font:800 16px/1.2 var(--display)}.mi small{font-size:12px;color:var(--muted);font-weight:700}
+.mi .go{margin-left:auto;color:var(--muted);font-weight:900}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.badge{text-align:center;padding:10px 2px;border-radius:16px;background:#fff;border:2px solid var(--line)}
+.badge span{font-size:28px;display:block;filter:grayscale(1);opacity:.35}
+.badge small{font-size:10px;font-weight:800;color:var(--muted);display:block;line-height:1.2;margin-top:2px}
+.badge.got{background:#fff9e0;border-color:#ffe08a}.badge.got span{filter:none;opacity:1}
+
+/* ---------- stories shelf ---------- */
+.shelf{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.book{text-align:left;background:#fff;border:2px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 5px 0 var(--line)}
+.book:active{transform:translateY(3px);box-shadow:0 2px 0 var(--line)}
+.book .cover{height:112px;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden}
+.book .cover .toon{margin-bottom:-8px}
+.book .cover em{position:absolute;left:8px;top:6px;font-size:22px;font-style:normal}
+.book .cover i{position:absolute;right:8px;top:8px;font-style:normal;font-size:11px;font-weight:900;background:rgba(255,255,255,.85);border-radius:9px;padding:2px 7px;color:var(--ink)}
+.book .info{padding:10px 12px 12px}
+.book b{display:block;font:800 15px/1.2 var(--display)}
+.book .dev{font-size:15px;color:var(--orange-d)}
+.book.done{border-color:var(--green)}
+.book.done .info::after{content:"✓ read";display:inline-block;margin-top:4px;font-size:11px;font-weight:900;color:var(--green-d)}
+
+/* scenes */
+.scene{position:relative;height:210px;border-radius:24px;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 20px rgba(43,33,64,.18);--sky:#bfe8ff;--gr:#7fd37f}
+.scene::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--sky) 0,var(--sky) 62%,var(--gr) 62%)}
+.scene.forest{--sky:#c7f0cd;--gr:#4fb36b}.scene.village{--sky:#ffe3b8;--gr:#9bd68a}.scene.river{--sky:#bfe8ff;--gr:#58b7f0}.scene.night{--sky:#33316e;--gr:#2c7a5a}.scene.home{--sky:#ffe0ec;--gr:#e7b98a}.scene.market{--sky:#fff0b8;--gr:#e9c58a}.scene.school{--sky:#d9e8ff;--gr:#a7d98f}.scene.rain{--sky:#9db4d1;--gr:#6aa57a}.scene.desert{--sky:#ffe9b0;--gr:#f0cf86}.scene.garden{--sky:#ffd9ec;--gr:#7ed98f}
+.scene .sun{position:absolute;right:18px;top:12px;font-size:34px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.15))}
+.scene .props{position:absolute;left:0;right:0;top:18px;display:flex;justify-content:space-around;font-size:30px;padding:0 14px}
+.scene .ground{position:absolute;left:0;right:0;bottom:56px;display:flex;justify-content:space-around;font-size:40px;opacity:.95}
+.scene .actors{position:absolute;left:0;right:0;bottom:-4px;display:flex;justify-content:center;gap:2px;align-items:flex-end}
+.scene .actors .toon{animation:bob 3s ease-in-out infinite}
+.scene .actors .toon:nth-child(2){animation-delay:-1s}
+.scene .actors .toon:nth-child(3){animation-delay:-2s}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.toon{overflow:visible;flex:none}
+.toon.mood-cheer{animation:hop .7s ease-in-out infinite}
+.toon.mood-sad{animation:droop 2.4s ease-in-out infinite}
+@keyframes hop{50%{transform:translateY(-12px) rotate(-3deg)}}
+@keyframes droop{50%{transform:translateY(3px) scale(.98)}}
+.line{background:#fff;border:2px solid var(--line);border-radius:20px;padding:14px;margin-top:14px;box-shadow:0 4px 0 var(--line)}
+.line .hi{font:800 22px/1.5 "Noto Sans Devanagari",var(--font)}
+.line .ro{color:var(--violet-d);font-style:italic;font-weight:700;font-size:15px}
+.line .mn{font-weight:700;margin-top:4px}
+.w-tap{border-radius:8px;padding:0 2px;cursor:pointer}.w-tap:active,.w-tap.hl{background:#fff1b8}
+.dots{display:flex;justify-content:center;gap:6px;margin:12px 0 0}
+.dots i{width:8px;height:8px;border-radius:50%;background:#e4dacb;transition:.2s}
+.dots i.on{width:22px;border-radius:5px;background:var(--orange)}
+
+/* ---------- sheet (lesson / quiz / tools) ---------- */
+.backdrop{position:fixed;inset:0;z-index:100;background:rgba(32,22,52,.55);display:none;align-items:flex-end;justify-content:center}
+.backdrop.show{display:flex;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.sheet{position:relative;width:100%;max-width:720px;height:96vh;height:96dvh;background:var(--bg);border-radius:28px 28px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:up .3s cubic-bezier(.2,.9,.3,1)}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(min-width:760px){.backdrop{align-items:center}.sheet{height:90vh;border-radius:28px}}
+.sheet-bar{display:flex;align-items:center;gap:10px;padding:12px 14px 10px;background:#fff;border-bottom:2px solid var(--line);flex:none}
+.x{width:40px;height:40px;border-radius:50%;background:#f4ecdf;font-size:22px;font-weight:900;color:var(--muted);flex:none}
+.sheet-bar .ttl{flex:1;min-width:0}
+.sheet-bar .ttl small{display:block;font-size:11px;font-weight:900;letter-spacing:1.2px;color:var(--orange-d);text-transform:uppercase}
+.sheet-bar .ttl b{display:block;font:800 17px/1.15 var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.steps{display:flex;gap:6px;padding:10px 14px;background:#fff;flex:none}
+.step{flex:1;text-align:center;padding:7px 2px;border-radius:13px;font-size:12px;font-weight:900;color:var(--muted);background:#f6efe3;transition:.2s}
+.step.on{background:var(--ink);color:#fff}
+.step.ok{background:#dff7e6;color:var(--green-d)}
+.sheet-body{flex:1;overflow-y:auto;padding:16px 14px 24px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.sheet-foot{flex:none;padding:10px 14px calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:2px solid var(--line);display:flex;gap:10px}
+.sheet-foot .btn{flex:1}
+.teach{display:flex;gap:10px;align-items:flex-end}
+.teach .toon{flex:none;margin-bottom:-6px}
+.bubble{position:relative;flex:1;background:#fff;border:2px solid var(--line);border-radius:20px 20px 20px 6px;padding:14px;box-shadow:0 4px 0 var(--line);font-size:16px;line-height:1.65;font-weight:600}
+.focus{display:inline-block;margin:10px 0 0;padding:6px 14px;border-radius:14px;background:#efeaff;color:var(--violet-d);font:800 22px "Noto Sans Devanagari",var(--font)}
+details.en{margin-top:10px;font-size:14px;color:var(--muted);font-weight:600}
+details.en summary{cursor:pointer;font-weight:900;color:var(--blue-d)}
+
+/* examples */
+.exbar{position:sticky;top:-16px;z-index:5;margin:-16px -14px 12px;padding:12px 14px;background:linear-gradient(var(--bg) 85%,transparent)}
+.exbar .row{gap:8px;flex-wrap:wrap}
+.ex{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:18px;padding:10px 12px;margin-bottom:9px;box-shadow:0 3px 0 var(--line);transition:.15s}
+.ex.known{background:#f1fbf3;border-color:#bfe9ca}
+.ex .n{width:26px;height:26px;border-radius:50%;background:#f4ecdf;font-size:11px;font-weight:900;color:var(--muted);display:grid;place-items:center;flex:none}
+.ex .t{flex:1;min-width:0}
+.ex .hi{font:800 22px/1.3 "Noto Sans Devanagari",var(--font);color:var(--orange-d);overflow-wrap:anywhere}
+.ex .ro{font-size:14px;font-weight:700;color:var(--violet-d);font-style:italic;overflow-wrap:anywhere}
+.ex .mn{font-size:15px;font-weight:700;overflow-wrap:anywhere}
+.hide-m .mn{filter:blur(7px);transition:.2s;cursor:pointer}.hide-m .ex.show-m .mn{filter:none}
+.star{font-size:22px;filter:grayscale(1);opacity:.4;transition:.15s;width:36px;height:36px;display:grid;place-items:center;flex:none}
+.star.on{filter:none;opacity:1;transform:scale(1.1)}
+.more-h{display:flex;align-items:center;gap:8px;margin:16px 2px 8px;font:800 14px var(--display);color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.more-h::after{content:"";flex:1;height:2px;background:var(--line);border-radius:2px}
+
+/* quiz */
+.qprog{display:flex;gap:5px;margin-bottom:14px}
+.qprog i{flex:1;height:9px;border-radius:5px;background:#eadfcc}.qprog i.past{background:var(--green)}.qprog i.now{background:var(--orange)}.qprog i.bad{background:var(--red)}
+.qcard{text-align:center;padding:20px 14px}
+.qshow{font:800 40px/1.3 "Noto Sans Devanagari",var(--font);color:var(--orange-d)}
+.qshow.txt{font:800 26px/1.3 var(--display);color:var(--ink)}
+.listen-big{width:92px;height:92px;border-radius:50%;font-size:40px;background:linear-gradient(135deg,#5aa0ff,#7c5cff);color:#fff;box-shadow:0 7px 0 var(--violet-d);display:inline-grid;place-items:center}
+.listen-big:active{transform:translateY(5px);box-shadow:0 2px 0 var(--violet-d)}
+.opts{display:grid;gap:10px;margin-top:14px}
+.opt{width:100%;text-align:left;padding:14px 16px;border-radius:18px;background:#fff;border:2px solid var(--line);box-shadow:0 4px 0 var(--line);font-weight:800;font-size:17px;transition:.12s;overflow-wrap:anywhere}
+.opt.dv{font:800 22px "Noto Sans Devanagari",var(--font)}
+.opt:active:not(.lock){transform:translateY(3px);box-shadow:0 1px 0 var(--line)}
+.opt.correct{background:#e3f9ea;border-color:var(--green);box-shadow:0 4px 0 var(--green-d);animation:pop .35s}
+.opt.wrong{background:#ffe9e9;border-color:var(--red);box-shadow:0 4px 0 #c43030;animation:shake .35s}
+@keyframes pop{50%{transform:scale(1.04)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{display:flex;gap:10px;align-items:center;margin-top:14px;padding:10px 12px;border-radius:18px;font-weight:800;animation:fade .25s}
+.fb .toon{flex:none}.fb.good{background:#e3f9ea;color:#12713a}.fb.bad{background:#ffe9e9;color:#a82525}
+.fb small{display:block;font-weight:700;opacity:.85;font-size:13px}
+.result{text-align:center;padding:10px 0}
+.result .toon{margin:0 auto}
+.result .score{font:800 54px/1 var(--display);margin:6px 0 2px}
+.rewards{display:flex;justify-content:center;gap:10px;margin:14px 0}
+.reward{background:#fff;border:2px solid var(--line);border-radius:16px;padding:8px 14px;font-weight:900}
+.pairs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.pair{padding:14px 8px;border-radius:16px;background:#fff;border:2px solid var(--line);box-shadow:0 4px 0 var(--line);font-weight:800;text-align:center;overflow-wrap:anywhere}
+.pair.sel{border-color:var(--violet);background:#f1ecff}.pair.ok{background:#e3f9ea;border-color:var(--green);opacity:.55}.pair.no{animation:shake .3s}
+#confetti{position:fixed;inset:0;z-index:300;pointer-events:none}
+.toast{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top));transform:translate(-50%,-90px);z-index:400;background:var(--ink);color:#fff;padding:10px 16px;border-radius:18px;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .35s cubic-bezier(.2,1.2,.3,1);max-width:90vw;text-align:center}
+.toast.on{transform:translate(-50%,0)}
+
+/* writing pad + keyboard */
+.pad-wrap{position:relative;border-radius:22px;background:#fff;border:2px dashed #e4c9ad;overflow:hidden;height:250px;background-image:linear-gradient(#f3d9c4 2px,transparent 2px),linear-gradient(#f9ebdd 1px,transparent 1px);background-size:100% 125px,100% 62px;background-position:0 62px,0 0}
+.pad-ghost{position:absolute;inset:0;display:grid;place-items:center;font:800 130px/1 "Noto Sans Devanagari",var(--font);color:#ffd9c4;pointer-events:none;overflow:hidden;text-align:center;padding:0 10px;word-break:break-all}
+.pad-ghost.long{font-size:64px}
+canvas.pad{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.txt{width:100%;min-height:140px;border:2px solid var(--line);border-radius:18px;padding:12px 14px;font:700 20px/1.6 "Noto Sans Devanagari",var(--font);background:#fff;color:var(--ink);resize:vertical}
+.txt:focus{outline:none;border-color:var(--violet)}
+.dkb{margin-top:10px;background:#fff;border:2px solid var(--line);border-radius:20px;padding:8px;box-shadow:0 4px 0 var(--line)}
+.dkb-tabs{display:flex;gap:4px;margin-bottom:6px}
+.dkb-tabs button{flex:1;padding:6px 2px;border-radius:10px;font-weight:900;font-size:12px;background:#f6efe3;color:var(--muted)}
+.dkb-tabs button.on{background:var(--violet);color:#fff}
+.dkb-keys{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+.dkb-keys button{height:38px;border-radius:10px;background:#f8f2e8;font:800 19px "Noto Sans Devanagari",var(--font);box-shadow:0 2px 0 #e8dcc8}
+.dkb-keys button:active{transform:translateY(2px);box-shadow:none;background:#ffe6d8}
+.dkb-keys button.fn{background:#ffe0d3;font-size:14px}
+.arr-box{min-height:62px;border:2px dashed #dccdb6;border-radius:16px;padding:8px;display:flex;flex-wrap:wrap;gap:8px;background:#fffdf8}
+.wd{padding:8px 12px;border-radius:13px;background:#fff;border:2px solid var(--line);box-shadow:0 3px 0 var(--line);font:800 20px "Noto Sans Devanagari",var(--font)}
+.wd:active{transform:translateY(2px);box-shadow:none}
+.wd.in{background:#efeaff;border-color:#cfc3ff}
+.flip{perspective:900px;height:230px;margin:6px 0 14px}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-in{transform:rotateY(180deg)}
+.flip-f,.flip-b{position:absolute;inset:0;border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:14px;text-align:center;border:3px solid #fff;box-shadow:0 8px 0 var(--line),0 14px 28px rgba(43,33,64,.12)}
+.flip-f{background:linear-gradient(135deg,#fff,#fff4e8)}.flip-b{background:linear-gradient(135deg,#efeaff,#ffe8f1);transform:rotateY(180deg)}
+.flip .big{font:800 54px/1.2 "Noto Sans Devanagari",var(--font);color:var(--orange-d)}
+.flip .mean{font:800 24px/1.25 var(--display)}
+.ref-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ref-tile{background:#fff;border:2px solid var(--line);border-radius:16px;padding:8px 2px;text-align:center;box-shadow:0 3px 0 var(--line)}
+.ref-tile:active{transform:translateY(2px)}
+.ref-tile b{display:block;font:800 26px/1.2 "Noto Sans Devanagari";color:var(--orange-d)}
+.ref-tile small{display:block;font-size:11px;font-weight:700;color:var(--muted)}
+.ref-tile span{display:block;font:700 13px "Noto Sans Devanagari"}
+.lbtn{font:800 28px "Noto Sans Devanagari";color:var(--violet-d);background:#f1ecff;border-radius:12px;padding:4px 10px;margin:3px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:7px 13px;border-radius:14px;background:#fff;border:2px solid var(--line);font-weight:800;font-size:13px}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.langlist{display:grid;gap:8px}
+.langlist button{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-radius:18px;background:#fff;border:2px solid var(--line);font:800 18px var(--display);box-shadow:0 3px 0 var(--line)}
+.langlist button.on{border-color:var(--orange);background:#fff3ea}
+.record{font-size:14px;font-weight:700;color:var(--muted);margin-top:10px;min-height:22px;text-align:center}
+.journal-item{background:#fff;border:2px solid var(--line);border-radius:18px;padding:12px;margin-top:10px}
+.journal-item .dev{font-size:19px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.center{text-align:center}
+.footer-note{text-align:center;color:var(--muted);font-size:12px;font-weight:700;margin-top:26px}
+@media(max-width:380px){.stats{gap:5px}.tiles,.shelf{gap:8px}.dkb-keys{grid-template-columns:repeat(7,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{.appbar,.tabbar,.app{display:none!important}}

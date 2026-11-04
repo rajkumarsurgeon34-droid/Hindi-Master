@@ -1,0 +1,118 @@
+/* styles for the picture-vocabulary and kids-academy modules */
+.vh-overlay{position:fixed;inset:0;z-index:1200;background:rgba(25,32,42,.62);display:none;align-items:center;justify-content:center;padding:14px}
+.vh-overlay.show{display:flex}
+.vh-panel{background:#fffdf9;color:#26313d;width:min(900px,100%);max-height:92vh;overflow:auto;border-radius:20px;padding:22px;box-shadow:0 20px 70px #0004}
+.vh-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.vh-head small,.vh-story-kind{font-size:10px;letter-spacing:1px;color:#a45d43;font-weight:800}
+.vh-head h2{margin:4px 0 12px;font-size:23px}
+.vh-head>button{border:0;background:#f3eee8;border-radius:50%;width:38px;height:38px;font-size:24px}
+.vh-tabs{display:flex;gap:7px;overflow-x:auto;padding:8px 0 14px}
+.vh-tabs button,.vh-modebar button{white-space:nowrap;border:1px solid #e8dfd3;background:#fff;border-radius:20px;padding:9px 12px;font-size:12px}
+.vh-tabs button.active,.vh-modebar button.active{background:#294e68;color:white;border-color:#294e68}
+.vh-modebar{display:flex;gap:7px;overflow:auto;margin:4px 0 16px}
+.vh-picture{font-size:84px;text-align:center;padding:24px 10px 8px}
+.vh-word{font:700 36px 'Noto Sans Devanagari',sans-serif;text-align:center;color:#254f70}
+.vh-roman{text-align:center;color:#a45d43;font-size:16px;margin:4px}
+.vh-meaning{text-align:center;margin:14px auto;padding:13px;background:#f7f3ec;border-radius:12px;max-width:480px;line-height:1.8}
+.vh-actions{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0}
+.vh-actions button,.vh-spell button,.vh-story button{border:0;border-radius:10px;background:#294e68;color:white;padding:10px 15px}
+.vh-actions span{font-size:12px;color:#6f7880}
+.vh-dots{display:flex;justify-content:center;gap:6px}
+.vh-dots button{width:8px;height:8px;border:0;border-radius:50%;background:#ddd;padding:0}
+.vh-dots button.on{background:#bd694a}
+.vh-spell{text-align:center;background:#f8f5ef;border-radius:15px;padding:20px;margin:8px auto;max-width:540px}
+.vh-picture-small{font-size:50px}
+.vh-spell h3{font:700 28px 'Noto Sans Devanagari',sans-serif;margin:8px}
+.vh-spell input{display:block;width:100%;box-sizing:border-box;padding:13px;border:1px solid #d9d1c6;border-radius:10px;margin:14px 0;font-size:18px}
+.vh-spell p{line-height:1.7}
+.vh-spell .good{color:#18734a;font-weight:700}
+.vh-spell .bad{color:#b43c32;font-weight:700}
+.vh-note{background:#f7f3ec;border-radius:10px;padding:12px;font-size:13px}
+.vh-number-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.vh-number-grid button{border:1px solid #e9e0d5;border-radius:10px;background:#fff;padding:9px 3px;display:grid;gap:3px}
+.vh-number-grid b,.vh-number-large{font:700 22px 'Noto Sans Devanagari';color:#285d83}
+.vh-number-grid span{font:600 13px 'Noto Sans Devanagari'}
+.vh-number-grid small{font-size:10px;color:#858585}
+.vh-number-large{font-size:48px}
+.vh-option{display:block;width:100%;margin:7px 0;padding:12px;border:1px solid #ddd;border-radius:9px;background:white;font:700 20px 'Noto Sans Devanagari'}
+.vh-story-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.vh-story-card{border:1px solid #e9e0d5;border-radius:12px;background:#fff;padding:13px;text-align:left;display:grid;gap:5px}
+.vh-story-card span{font-size:26px}
+.vh-story-card small{color:#8b7770}
+.vh-story{margin-top:14px;padding:17px;background:#f8f5ef;border-radius:14px}
+.vh-story h3{font:700 26px 'Noto Sans Devanagari'}
+.vh-story>p{display:grid;grid-template-columns:1fr auto;gap:5px;border-bottom:1px solid #e8dfd3;padding:8px 0}
+.vh-story>p b{font:600 17px 'Noto Sans Devanagari';line-height:1.8}
+.vh-story>p small{grid-column:1;color:#667078}
+.vh-story>p button{grid-column:2;grid-row:1/3;align-self:center;padding:8px}
+.vh-story>button{margin-top:12px}
+@media(max-width:540px){.vh-panel{padding:15px;border-radius:16px}.vh-head h2{font-size:19px}.vh-tabs button{font-size:11px;padding:8px}.vh-number-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.vh-story-list{grid-template-columns:repeat(2,minmax(0,1fr))}.vh-word{font-size:30px}}
+.kids-overlay{display:none;position:fixed;inset:0;z-index:1200;background:#182533b8;align-items:center;justify-content:center;padding:12px}
+.kids-overlay.show{display:flex}
+.kids-panel{width:min(900px,100%);max-height:94vh;overflow:auto;background:#fffdf8;border-radius:24px;padding:22px;color:#263442;box-shadow:0 25px 90px #0005}
+.kids-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.kids-head small{font-size:9px;letter-spacing:1.5px;color:#bd704e;font-weight:800}
+.kids-head h2{margin:5px 0;font-size:24px}
+.kids-head p{font-size:12px;color:#7a7e7b;margin:5px 0 15px}
+.kids-head>button{border:0;border-radius:50%;width:38px;height:38px;background:#f2eee5;font-size:24px}
+.kids-progress{font-size:11px;color:#6f7475;margin:8px 0 15px}
+.kids-progress b{float:right}
+.kids-progress>div,.kids-lesson-progress>div{height:7px;border-radius:10px;background:#eee9df;margin-top:8px;overflow:hidden}
+.kids-progress i,.kids-lesson-progress i{display:block;height:100%;background:#ef8759;border-radius:10px;transition:width .5s}
+.kids-levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kids-level{min-height:140px;border:1px solid #e9e3d9;border-radius:16px;background:white;padding:14px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:6px;transition:.2s}
+.kids-level:not(:disabled){cursor:pointer}
+.kids-level:not(:disabled):hover{transform:translateY(-4px);box-shadow:0 10px 25px #38475b16}
+.kids-level:disabled{opacity:.55}
+.kids-level.passed{background:#eff7ed;border-color:#d5e6d1}
+.kids-level-emoji{font-size:30px}
+.kids-level b{font-size:13px}
+.kids-level small{font-size:10px;color:#7b8080;line-height:1.4}
+.kids-level em{font-style:normal;font-size:9px;color:#b66c4c;margin-top:auto}
+.kids-tools{display:flex;gap:8px;margin:15px 0}
+.kids-tools button,.kids-actions button,.kids-next{border:0;border-radius:11px;background:#294e68;color:white;padding:11px 14px;font-weight:700;font-size:11px;cursor:pointer}
+.kids-note{padding:12px;background:#f8f1e7;border-radius:12px;font-size:11px;color:#765d4a}
+.kids-note span{float:right}
+.kids-lesson-progress{font-size:11px;color:#7d8080}
+.kids-hero-emoji{text-align:center;font-size:78px;margin:20px 0 3px;animation:kidFloat 2s ease-in-out infinite}
+.kids-hindi{text-align:center;font:800 42px 'Noto Sans Devanagari';color:#b95e3e}
+.kids-hindi.bounce{animation:kidPop .55s ease}
+.kids-roman{text-align:center;color:#a36c50;font-size:14px}
+.kids-meaning{text-align:center;background:#f7f2e9;border-radius:12px;padding:12px;max-width:420px;margin:14px auto}
+.kids-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:16px 0}
+.kids-actions button:first-child{background:#e5eee8;color:#315f47}
+.kids-back{border:0;background:transparent;color:#7b7770;padding:10px}
+.kids-instruction{text-align:center;background:#f7f2e9;padding:12px;border-radius:12px;font-size:12px}
+.kids-match-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:16px 0}
+.kids-picture{border:2px solid #e8e2d8;background:white;border-radius:14px;padding:12px;display:grid;gap:5px;cursor:pointer}
+.kids-picture span{font-size:40px}
+.kids-picture small{font-size:10px;color:#777}
+.kids-picture.chosen{border-color:#e98b60;background:#fff5ec}
+.kids-picture.matched{border-color:#7fb38b;background:#edf8ee}
+.kids-word-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.kids-word-choice{border:1px solid #e8e2d8;background:white;border-radius:10px;padding:12px 5px;font:700 19px 'Noto Sans Devanagari';cursor:pointer}
+.kids-word-choice.matched{background:#eaf6ec;border-color:#7fb38b}
+.kids-word-choice.shake{animation:kidShake .3s}
+.kids-dict-card,.kids-test-card,.kids-result{max-width:530px;margin:18px auto;padding:20px;background:#f8f3ea;border-radius:17px;text-align:center}
+.kids-dict-card>div{font-size:55px}
+.kids-dict-card button{border:0;border-radius:10px;background:#294e68;color:white;padding:10px 14px;margin:8px}
+.kids-dict-card input,.kids-actions input{padding:12px;border:1px solid #dcd5c9;border-radius:10px;font-size:18px;width:100%;margin:10px 0;text-align:center}
+.kids-dict-card p.good{color:#18734a}
+.kids-dict-card p.bad{color:#b43c32}
+.kids-test-card>small{color:#9a725a}
+.kids-test-emoji{font-size:65px;margin:12px}
+.kids-test-option{display:block;width:100%;margin:7px 0;padding:12px;border:1px solid #e6ded2;border-radius:10px;background:white;font:700 21px 'Noto Sans Devanagari';cursor:pointer}
+.kids-certificate{max-width:600px;margin:15px auto;padding:30px 18px;text-align:center;border:8px double #c99b54;background:#fffaf0;box-shadow:inset 0 0 0 5px #fff}
+.kids-certificate h2{font:800 31px Georgia;color:#8c6030}
+.kids-certificate h3{font-size:19px;color:#80613a}
+.kids-certificate>p{color:#766b59}
+.cert-stars{font-size:25px;color:#d29d42}
+.cert-child{font:700 27px 'Noto Sans Devanagari',serif;color:#9c633d;margin:22px 0}
+.cert-sign{border-top:1px solid #d7c49f;padding-top:13px;font-size:11px;color:#806b4c}
+.kids-result>div{font-size:55px}
+.kids-result h3{font-size:25px}
+@keyframes kidFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes kidPop{0%{transform:scale(.7);opacity:.4}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes kidShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media print{.kids-panel{box-shadow:none;max-height:none}.kids-head,#kidsContent>*:not(.kids-certificate){display:none!important}.kids-certificate{display:block!important}}
+@media(max-width:600px){.kids-panel{padding:15px;border-radius:17px}.kids-head h2{font-size:20px}.kids-levels{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.kids-level{min-height:125px;padding:11px}.kids-tools{display:grid;grid-template-columns:1fr 1fr}.kids-tools button{font-size:10px;padding:10px 5px}.kids-match-grid,.kids-word-grid{grid-template-columns:repeat(2,1fr)}.kids-picture span{font-size:34px}.kids-hindi{font-size:35px}}

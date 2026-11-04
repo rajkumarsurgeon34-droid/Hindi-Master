@@ -26,8 +26,10 @@ public class MainActivity extends Activity {
     private static final String HOME = "https://" + HOST + "/index.html";
 
     /** Closes any open lesson / activity window; returns how many it closed. */
-    private static final String CLOSE_OVERLAYS_JS =
-            "(function(){var n=0;document.querySelectorAll('#modal.show,.vh-overlay.show,.kids-overlay.show')"
+    private static final String CLOSE_OVERLAYS_JS = "(function(){var n=0;document.querySelectorAll('#modal.show,.vh-overlay.show,.kids-overlay.show').forEach(function(e){e.classList.remove('show');n++});"
+            + "var sh=document.getElementById('sheet');if(sh&&sh.classList.contains('show')){try{closeSheet()}catch(e){sh.classList.remove('show')}n++}"
+            + "if(!n&&window.curTab&&curTab()!=='learn'){goTab('learn');n++}"
+            + "try{speechSynthesis.cancel()}catch(e){}return n;})()";document.querySelectorAll('#modal.show,.vh-overlay.show,.kids-overlay.show')"
                     + ".forEach(function(e){e.classList.remove('show');n++});"
                     + "try{speechSynthesis.cancel()}catch(e){}return n;})()";
 
