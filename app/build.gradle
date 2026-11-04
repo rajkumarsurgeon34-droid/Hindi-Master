@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.shazverse.hindimaster'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.shazverse.hindimaster"
+        minSdk 24
+        targetSdk 34
+        // CI sets GITHUB_RUN_NUMBER so every build can install over the previous one.
+        versionCode (System.getenv("GITHUB_RUN_NUMBER") ?: "1").toInteger()
+        versionName "1.0"
+    }
+
+    // A fixed key means every build is signed the same way, so a new APK installs
+    // over the old one and learner progress on the phone is kept.
+    // NOTE: this is the standard public Android debug key - fine for sideloading
+    // to your own phone, but NOT for Google Play (use a private key for that).
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.8.0'
+}
